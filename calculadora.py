@@ -23,78 +23,153 @@ def dividir(x, y):
         x = x // y
     return(x)
 
-def triangulo(x, y, z):
-    if x == y and x == z and y == z:
-        x = 'triângulo retângulo'
+def porcentagem(x, y):
+    if x and y >= 0:
+        x = x * y
+        x = x / 100
         return(x)
 
-    elif x == y and x == z and y != z:
-        x = 'triângulo com 2 lados iguais'
+def exponencial(x, y):
+    if x and y >= 0:
+        x = x ** y
         return(x)
 
-    elif x == y and x != z and y != z:
-        x = 'triângulo com apenas 1 lado igual'
-        return(x)
 
-    elif x != y and x != z and y != z:
-        x = 'triângulo com nenhum lado igual'
-        return(x)
+controller = 0
+fim = 0
 
-    elif x != y and x == z and y != z:
-        x = 'triângulo com apenas 1 lado igual'
-        return(x)
-
-e = 0
-
-while e != 99:
-
-    e = int(input('Digite 1 para soma ;'
-              ' 2 para subtração ;'
-              ' 3 para multiplicação ;'
-              ' 4 para divisão inteira ; '
-              ' 5 para divisão real '
-              ' ou 6 para definir um triângulo: '))
+while controller != 2:
 
 
 
-    if e == 1:
-        h = int(input('Digite um valor para x: '))
-        t = int(input('Digite um valor para y: '))
-        c = somar(h,t)
-        i = int(input('digite 1 para fazer mais uma soma ou 2 para finalizar.'))
-        if i == 2:
-            print(c)
 
-        elif i == 1:
-            n = int(input('Digite um valor para n: '))
-            m = int(input('Digite um valor para m: '))
-            d = somar(n,m)
-            e = c + d
-            print(e)
+    if controller == 1 or controller == 0:
+        e = int(input('Digite um número para escolher: \n'
+                  ' 1 para soma \n'
+                  ' 2 para subtração \n'
+                  ' 3 para multiplicação \n'
+                  ' 4 para divisão inteira  \n'
+                  ' 5 para divisão real \n '
+                  '6 para porcentagem \n'
+                  ' 7 para exponencial: '))
 
-    elif e == 2:
-        h = int(input('Digite um valor para x: '))
-        t = int(input('Digite um valor para y: '))
-        print('valor final:', subtrair(h,t))
+        if e == 1:
+            if controller == 0:
+                h = int(input('Digite um valor: '))
+                t = int(input('Digite um valor para somar: '))
+                c = somar(h, t)
+                fim = c
+                print('Resultado: ', fim)
 
-    elif e == 3:
-        h = int(input('Digite um valor para x: '))
-        t = int(input('Digite um valor para y: '))
-        print('valor final:', multiplicar(h,t))
 
-    elif e == 4:
-        h = int(input('Digite um valor para x: '))
-        t = int(input('Digite um valor para y: '))
-        print('valor final:', dividir_inteiro(h,t))
+            elif controller == 1:
+                t = int(input('Digite um valor para somar: '))
+                c = somar(fim, t)
+                fim = c
+                print('Resultado: ', fim)
 
-    elif e == 5:
-        h = int(input('Digite um valor para x: '))
-        t = int(input('Digite um valor para y: '))
-        print('valor final:', dividir(h,t))
 
-    elif e == 6:
-        h = int(input('Digite um valor para x: '))
-        t = int(input('Digite um valor para y: '))
-        p = int(input('Digite um valor para z: '))
-        print('valor final:', triangulo(h,t,p))
+
+        elif e == 2:
+            if controller == 0:
+                h = int(input('Digite um valor: '))
+                t = int(input('Digite um valor para subtrair: '))
+                c = subtrair(h, t)
+                fim = c
+                print('Resultado: ', fim)
+
+
+            elif controller == 1:
+                t = int(input('Digite um valor para subtrair: '))
+                c = subtrair(fim, t)
+                fim = c
+                print('Resultado: ', fim)
+
+        elif e == 3:
+            if controller == 0:
+                h = int(input('Digite o primeiro valor: '))
+                t = int(input('Digite o segundo valor: '))
+                c = multiplicar(h, t)
+                fim = c
+                print('Resultado: ', fim)
+
+
+            elif controller == 1:
+                t = int(input('Digite um valor para multiplicar: '))
+                c = multiplicar(fim, t)
+                fim = c
+                print('Resultado: ', fim)
+
+
+        elif e == 4:
+            if controller == 0:
+                h = int(input('Digite o valor a ser dividido: '))
+                t = int(input('Digite o valor divisor: '))
+                c = dividir_inteiro(h, t)
+                fim = c
+                print('Resultado: ', fim)
+
+
+            elif controller == 1:
+                t = int(input('Digite um valor para divisor: '))
+                c = dividir_inteiro(fim, t)
+                fim = c
+                print('Resultado: ', fim)
+
+        elif e == 5:
+            if controller == 0:
+                h = int(input('Digite o valor a ser dividido: '))
+                t = int(input('Digite o valor divisor: '))
+                c = dividir(h, t)
+                fim = c
+                print('Resultado: ', fim)
+
+
+            elif controller == 1:
+                t = int(input('Digite um valor para divisor: '))
+                c = dividir(fim, t)
+                fim = c
+                print('Resultado: ', fim)
+
+        elif e == 6:
+            if controller == 0:
+                h = int(input('Digite o valor: '))
+                t = int(input('Digite a porcentagem: '))
+                c = porcentagem(h, t)
+                fim = c
+                print('Resultado final: ', fim,'%')
+                break;
+
+
+            elif controller == 1:
+                t = int(input('Digite o valor para descobrir porcentagem: '))
+                c = porcentagem(fim, t)
+                fim = c
+                print('Resultado final: ', fim,'%')
+                break;
+
+        elif e == 7:
+            if controller == 0:
+                h = int(input('Digite o valor: '))
+                t = int(input('Elevado a: '))
+                c = exponencial(h, t)
+                fim = c
+                print('Resultado final: ', fim)
+
+
+            elif controller == 1:
+                t = int(input('Elevado a: '))
+                c = exponencial(fim, t)
+                fim = c
+                print('Resultado final: ', fim)
+
+
+
+
+
+    controller = int(input('Deseja continuar? \n'
+                           'Se sim digite 1, se não digite 2: '))
+    if controller == 2:
+        print('Valor Final: ',fim)
+        break;
 
