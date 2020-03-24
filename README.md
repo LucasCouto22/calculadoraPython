@@ -1,2 +1,3 @@
 # calculadoraPython
-Testando o GitHub e aprendendo a utilizar
+
+Nesse projeto, implemento o conhecimento principal de utilização de funções em Python por meio da criação de uma calculadora.
