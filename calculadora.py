@@ -13,7 +13,7 @@ def multiplicar(x, y):
         x = x * y
     return(x)
 
-def dividir_inteiro(x, y):
+def dividirInteiro(x, y):
     if x and y >= 0:
         x = x / y
     return(x)
@@ -34,6 +34,11 @@ def exponencial(x, y):
         x = x ** y
         return(x)
 
+def raizQuadrada(x):
+    if x >= 0:
+        x = x ** 0.5
+        return(x)
+
 
 controller = 0
 fim = 0
@@ -51,7 +56,8 @@ while controller != 2:
                   ' 4 para divisão inteira  \n'
                   ' 5 para divisão real \n '
                   '6 para porcentagem \n'
-                  ' 7 para exponencial: '))
+                  ' 7 para exponencial \n'
+                  ' 8 para raiz quadrada: '))
 
         if e == 1:
             if controller == 0:
@@ -105,14 +111,14 @@ while controller != 2:
             if controller == 0:
                 h = int(input('Digite o valor a ser dividido: '))
                 t = int(input('Digite o valor divisor: '))
-                c = dividir_inteiro(h, t)
+                c = dividirInteiro(h, t)
                 fim = c
                 print('Resultado: ', fim)
 
 
             elif controller == 1:
                 t = int(input('Digite um valor para divisor: '))
-                c = dividir_inteiro(fim, t)
+                c = dividirInteiro(fim, t)
                 fim = c
                 print('Resultado: ', fim)
 
@@ -154,15 +160,26 @@ while controller != 2:
                 t = int(input('Elevado a: '))
                 c = exponencial(h, t)
                 fim = c
-                print('Resultado final: ', fim)
+                print('Resultado: ', fim)
 
 
             elif controller == 1:
                 t = int(input('Elevado a: '))
                 c = exponencial(fim, t)
                 fim = c
-                print('Resultado final: ', fim)
+                print('Resultado: ', fim)
 
+        elif e == 8:
+            if controller == 0:
+                t = int(input('Número para descobrir raiz quadrada: '))
+                c = raizQuadrada(t)
+                fim = c
+                print('Resultado: ', fim)
+
+            elif controller == 1:
+                c = raizQuadrada(fim)
+                fim = c
+                print('Resultado: ', fim)
 
 
 
